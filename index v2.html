@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govt. HSS Shangus, Anantnag - Admissions & Examinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+        .school-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .logo {
+            margin-bottom: 20px;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .password-container {
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .password-container input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .password-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .password-container button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password === "Hss@24") {
+                window.location.href = "YOUR_VIEW_ONLY_LINK_HERE";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Govt. HSS Shangus, Anantnag</h1>
+    </header>
+    <div class="container">
+        <div class="school-name">Admissions & Examination Section</div>
+        <img src="https://drive.google.com/uc?export=view&id=10zpU6BR9Q2pKKcWQNDh1S2eVDuMoDn7K" alt="School Logo" class="logo">
+        <p>Welcome to the Admissions and Examinations section of Govt. Higher Secondary School (HSS) Shangus, Anantnag. Here, you can access important documents and information related to the school's admissions process and examination schedules.</p>
+        <div class="password-container">
+            <h2>Enter Password to Access File</h2>
+            <input type="password" id="password" placeholder="Enter password">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Govt. HSS Shangus, Anantnag. All rights reserved.
+    </footer>
+</body>
+</html>
