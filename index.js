@@ -5,7 +5,7 @@ function orderProduct(productName, productPrice) {
   document.getElementById('price').value = productPrice;
 }
 
-// Add event listener for the form
+// Handle form submission and redirect to the payment page
 document.getElementById('form').addEventListener('submit', function(event) {
   event.preventDefault();
   const product = document.getElementById('product').value;
