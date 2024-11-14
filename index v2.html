@@ -1,122 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Govt. HSS Shangus, Anantnag - Admissions & Examinations</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            border-radius: 10px;
-        }
-        .school-name {
-            font-size: 32px;
-            font-weight: bold;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-        .logo {
-            margin-bottom: 20px;
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border: 2px solid #007bff;
-            border-radius: 10px;
-        }
-        h1 {
-            text-align: center;
-            color: #007bff;
-            margin-bottom: 30px;
-        }
-        p {
-            line-height: 1.6;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        .password-container {
-            margin: 20px auto;
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-        }
-        .password-container input {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-        .password-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .password-container button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #007bff;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-    <script>
-        function checkPassword() {
-            var password = document.getElementById("password").value;
-            if (password === "Hss@24") {
-                window.location.href = "YOUR_VIEW_ONLY_LINK_HERE";
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer & Software Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
+  <script src="index.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Govt. HSS Shangus, Anantnag</h1>
-    </header>
-    <div class="container">
-        <div class="school-name">Admissions & Examination Section</div>
-        <img src="https://drive.google.com/uc?export=view&id=10zpU6BR9Q2pKKcWQNDh1S2eVDuMoDn7K" alt="School Logo" class="logo">
-        <p>Welcome to the Admissions and Examinations section of Govt. Higher Secondary School (HSS) Shangus, Anantnag. Here, you can access important documents and information related to the school's admissions process and examination schedules.</p>
-        <div class="password-container">
-            <h2>Enter Password to Access File</h2>
-            <input type="password" id="password" placeholder="Enter password">
-            <button onclick="checkPassword()">Submit</button>
-        </div>
+  <header>
+    <h1>Computer & Software Store</h1>
+    <p>Explore our selection of computers, peripherals, and software.</p>
+  </header>
+  
+  <section id="products">
+    <h2>Available Products</h2>
+    <div class="product">
+      <img src="images/laptop.png" alt="High-Performance Laptop">
+      <h3>High-Performance Laptop</h3>
+      <p>Price: $1200</p>
+      <button onclick="orderProduct('High-Performance Laptop', 1200)">Order Now</button>
     </div>
-    <footer>
-        &copy; 2024 Govt. HSS Shangus, Anantnag. All rights reserved.
-    </footer>
+    <div class="product">
+      <img src="images/keyboard-mouse.png" alt="Wireless Keyboard and Mouse Combo">
+      <h3>Wireless Keyboard and Mouse Combo</h3>
+      <p>Price: $60</p>
+      <button onclick="orderProduct('Wireless Keyboard and Mouse Combo', 60)">Order Now</button>
+    </div>
+    <div class="product">
+      <img src="images/antivirus.png" alt="Antivirus Software">
+      <h3>Antivirus Software (1-Year Subscription)</h3>
+      <p>Price: $40</p>
+      <button onclick="orderProduct('Antivirus Software', 40)">Order Now</button>
+    </div>
+  </section>
+  
+  <section id="order-form" style="display:none;">
+    <h2>Order Form</h2>
+    <form id="form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="address" placeholder="Delivery Address" required>
+      <input type="hidden" name="product" id="product">
+      <input type="hidden" name="price" id="price">
+      <div id="container"></div>
+    </form>
+  </section>
+
+  <section id="help">
+    <h2>Help</h2>
+    <p>Need assistance? Browse our FAQ section or contact support.</p>
+    <p>FAQ: <a href="#">Shipping Information</a> | <a href="#">Returns & Refunds</a> | <a href="#">Payment Methods</a></p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@computersoftwarestore.com</p>
+    <p>Phone: +1-800-555-0199</p>
+    <p>Address: 123 Tech Lane, Silicon Valley, CA</p>
+  </section>
 </body>
 </html>
