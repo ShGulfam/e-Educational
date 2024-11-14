@@ -180,3 +180,38 @@ footer p {
     margin-top: 10px;
   }
 }
+
+
+#payment-details {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#payment-details h2 {
+  color: #333;
+}
+
+#payment-details p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+#upi-button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#upi-button:hover {
+  background-color: #218838;
+}
+
