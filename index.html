@@ -2,139 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>e-Educational</title>
+  <title>e-Educational - Home</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+  <script src="index.js" defer></script>
 </head>
 <body>
   <!-- Header Section -->
   <header>
-    <h1>e-Educational</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-    <p>Explore our selection of computers, peripherals, and software.</p>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Product Section -->
-  <section id="products">
-    <h2>Available Products</h2>
-
-    <!-- Product 1: High-Performance Laptop -->
-    <div class="product">
-      <img src="https://raw.githubusercontent.com/ShGulfam/Dynamic/refs/heads/main/computer.png" alt="High-Performance Laptop">
-      <h3>High-Performance Laptop</h3>
-      <p class="price">Price: ₹98,000 <span class="discount">Save 10%</span></p>
-      <p class="stock-status">In Stock</p>
-      <p class="description">A high-performance laptop with powerful specs to handle any task, from office work to graphic design.</p>
-      <ul class="specs">
-        <li>Processor: Intel Core i7</li>
-        <li>RAM: 16GB</li>
-        <li>Storage: 512GB SSD</li>
-        <li>Display: 15.6" Full HD</li>
-      </ul>
-      <p class="reviews">⭐️⭐️⭐️⭐️☆ (4.5) - 120 reviews</p>
-      <button onclick="openOrderPopup('High-Performance Laptop', 98000)">Order Now</button>
-      <button onclick="addToCart('High-Performance Laptop')">Add to Cart</button>
-    </div>
-
-      <!-- Product 2: Wireless Keyboard and Mouse Combo -->
-    <div class="product">
-      <img src="https://raw.githubusercontent.com/ShGulfam/Dynamic/refs/heads/main/mouse.png" alt="Wireless Keyboard and Mouse Combo">
-      <h3>Wireless Keyboard and Mouse Combo</h3>
-      <p class="price">Price: ₹4,980</p>
-      <p class="stock-status">In Stock</p>
-      <p class="description">A sleek and compact wireless keyboard and mouse combo, perfect for productivity on the go.</p>
-      <ul class="specs">
-        <li>Connection: Wireless (Bluetooth)</li>
-        <li>Battery Life: Up to 12 months</li>
-        <li>Compatibility: Windows, macOS</li>
-      </ul>
-      <p class="reviews">⭐️⭐️⭐️⭐️☆ (4.0) - 89 reviews</p>
-      <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)">Order Now</button>
-      <button onclick="addToCart('Wireless Keyboard and Mouse Combo')">Add to Cart</button>
-    </div>
-
-    <!-- Product 3: Antivirus Software (1-Year Subscription) -->
-    <div class="product">
-      <img src="https://raw.githubusercontent.com/ShGulfam/Dynamic/refs/heads/main/antivirus.png" alt="Antivirus Software">
-      <h3>Antivirus Software (1-Year Subscription)</h3>
-      <p class="price">Price: ₹3,320 <span class="discount">Save 5%</span></p>
-      <p class="stock-status">Limited Stock</p>
-      <p class="description">Protect your computer from viruses, malware, and online threats with a 1-year subscription to top-rated antivirus software.</p>
-      <ul class="specs">
-        <li>License: 1-Year Subscription</li>
-        <li>Compatibility: Windows, macOS</li>
-        <li>Features: Real-time protection, Safe browsing, etc.</li>
-      </ul>
-      <p class="reviews">⭐️⭐️⭐️⭐️⭐️ (5.0) - 230 reviews</p>
-      <button onclick="openOrderPopup('Antivirus Software', 3320)">Order Now</button>
-      <button onclick="addToCart('Antivirus Software')">Add to Cart</button>
-    </div>
-
-    <!-- Product 4: External Hard Drive (1TB) -->
-    <div class="product">
-      <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_hdd.png" alt="External Hard Drive">
-      <h3>External Hard Drive (1TB)</h3>
-      <p class="price">Price: ₹6,640</p>
-      <p class="stock-status">In Stock</p>
-      <p class="description">A reliable 1TB external hard drive to safely store and back up all your important files and data.</p>
-      <ul class="specs">
-        <li>Storage Capacity: 1TB</li>
-        <li>Interface: USB 3.0</li>
-        <li>Compatibility: Windows, macOS, Linux</li>
-      </ul>
-      <p class="reviews">⭐️⭐️⭐️⭐️☆ (4.3) - 150 reviews</p>
-      <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)">Order Now</button>
-      <button onclick="addToCart('External Hard Drive (1TB)')">Add to Cart</button>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <h1>Welcome to e-Educational</h1>
+      <p>Your One-Stop Shop for Quality Electronics</p>
+      <a href="products.html" class="btn">Shop Now</a>
     </div>
   </section>
+
+  <!-- Featured Products Section -->
+  <section id="featured-products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <!-- Product Cards -->
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="images/computer.png" alt="High-Performance Laptop">
+          <h3>High-Performance Laptop</h3>
+          <p class="price">₹98,000 <span class="discount">Save 10%</span></p>
+          <p class="description">Powerful specs to handle any task, from office work to graphic design.</p>
+          <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn">Buy Now</button>
+        </div>
+        <!-- Repeat for other products -->
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="images/mouse.png" alt="Wireless Keyboard and Mouse Combo">
+          <h3>Wireless Keyboard and Mouse Combo</h3>
+          <p class="price">₹4,980</p>
+          <p class="description">Perfect for productivity on the go.</p>
+          <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Buy Now</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="images/antivirus.png" alt="Antivirus Software">
+          <h3>Antivirus Software (1-Year Subscription)</h3>
+          <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
+          <p class="description">Protect your computer from viruses and malware.</p>
+          <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn">Buy Now</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="images/external_hdd.png" alt="External Hard Drive">
+          <h3>External Hard Drive (1TB)</h3>
+          <p class="price">₹6,640</p>
+          <p class="description">Safely store and back up all your important files.</p>
+          <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Trust Indicators -->
+  <section id="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <i class="fas fa-shield-alt"></i>
+          <p>Secure Payments</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-truck"></i>
+          <p>Fast Shipping</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-headset"></i>
+          <p>24/7 Support</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-undo"></i>
+          <p>Easy Returns</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-item">
+          <p>"Excellent service and fast delivery. Highly recommended!"</p>
+          <h4>- John Doe</h4>
+        </div>
+        <div class="testimonial-item">
+          <p>"Quality products at great prices. The customer support is outstanding."</p>
+          <h4>- Jane Smith</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section id="newsletter">
+    <div class="container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest offers and products.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
 
   <!-- Order Form Popup Modal -->
   <div id="order-popup" class="popup">
     <div class="popup-content">
       <span class="close-btn" onclick="closeOrderPopup()">&times;</span>
       <h2>Order Form</h2>
-      <form id="form">
+      <form id="order-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <input type="text" name="address" placeholder="Delivery Address" required>
         <input type="hidden" name="product" id="product">
         <input type="hidden" name="price" id="price">
-        <button type="submit">Submit Order</button>
+        <button type="submit" class="btn">Submit Order</button>
       </form>
     </div>
   </div>
-
-  <!-- Help Section -->
-  <section id="help">
-    <h2>Help</h2>
-    <p>Need assistance? Browse our FAQ section or contact support.</p>
-    <p>FAQ:
-      <a href="#" onclick="showPopup('Shipping Information: Our shipping times are 5-7 business days.')">Shipping Information</a> |
-      <a href="#" onclick="showPopup('Returns & Refunds: We offer a 30-day return policy on all items.')">Returns & Refunds</a> |
-      <a href="#" onclick="showPopup('Payment Methods: We accept credit cards, debit cards, and UPI payments.')">Payment Methods</a>
-    </p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
-    <p>Phone: +91-9469050879</p>
-    <p>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
-  </section>
-
-  <!-- Footer Section -->
-  <footer>
-    <p>© 2023 e-Educational. All rights reserved.</p>
-    <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
-  </footer>
 
   <!-- Popup for Help Links -->
   <div id="popup" class="popup">
@@ -143,8 +192,5 @@
       <p id="popup-text"></p>
     </div>
   </div>
-
-  <!-- Scripts -->
-  <script src="index.js"></script>
 </body>
 </html>
