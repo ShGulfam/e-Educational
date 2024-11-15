@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy - e-Educational</title>
+  <title>Payment Page - e-Educational</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="payment.js" defer></script>
 </head>
 <body>
   <!-- Header Section -->
@@ -25,17 +26,16 @@
     </div>
   </header>
 
-  <!-- Privacy Policy Content -->
-  <main>
+  <!-- Payment Details -->
+  <section id="payment-details">
     <div class="container">
-      <section id="privacy-content">
-        <h2>Privacy Policy</h2>
-        <p>We are committed to protecting your personal information.</p>
-        <!-- Insert detailed privacy policy content here -->
-        <!-- Ensure compliance with applicable laws (e.g., GDPR) -->
-      </section>
+      <h2>Complete Your Payment</h2>
+      <p id="product-name">Product: Loading...</p>
+      <p id="amount">Amount: ₹0</p>
+      <button id="upi-button" class="btn" onclick="payWithUPI()">Pay Using UPI</button>
+      <p class="secure-payment"><i class="fas fa-lock"></i> Secure Payment Gateway</p>
     </div>
-  </main>
+  </section>
 
   <!-- Footer Section -->
   <footer>
