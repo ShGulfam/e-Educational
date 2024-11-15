@@ -3,31 +3,6 @@
 // Initialize user login state
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-// Check and define auth-popup container if missing
-function ensureAuthPopup() {
-    let authPopup = document.getElementById('auth-popup');
-    if (!authPopup) {
-        const popupHTML = `
-            <div id="auth-popup" style="display: none;" class="popup-container">
-                <div class="popup">
-                    <h3 id="auth-title">Sign In</h3>
-                    <form id="auth-form">
-                        <label for="auth-email">Email</label>
-                        <input type="email" id="auth-email" required>
-                        <label for="auth-password">Password</label>
-                        <input type="password" id="auth-password" required>
-                        <button id="auth-submit-btn" type="submit">Sign In</button>
-                    </form>
-                    <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
-                    <button onclick="closeAuthPopup()">Close</button>
-                </div>
-            </div>`;
-        document.body.insertAdjacentHTML('beforeend', popupHTML);
-    }
-}
-
-ensureAuthPopup();
-
 // Function to open the auth popup
 function openAuthPopup() {
     document.getElementById('auth-popup').style.display = 'flex';
@@ -58,8 +33,8 @@ function toggleAuthMode() {
 // Handle auth form submission
 document.getElementById('auth-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    const email = document.getElementById('auth-email').value;
-    const password = document.getElementById('auth-password').value;
+    const email = document.getElementById('auth-email').value.trim();
+    const password = document.getElementById('auth-password').value.trim();
     const authTitle = document.getElementById('auth-title').innerText;
 
     if (authTitle === 'Sign In') {
@@ -71,20 +46,32 @@ document.getElementById('auth-form').addEventListener('submit', function(event) 
             alert('Sign in successful!');
             closeAuthPopup();
             checkPendingActions();
+            updateAuthLinks();
         } else {
             alert('Invalid email or password.');
         }
     } else {
-        localStorage.setItem('userEmail', email);
-        localStorage.setItem('userPassword', password);
-        isLoggedIn = true;
-        localStorage.setItem('isLoggedIn', 'true');
-        alert('Sign up successful!');
-        closeAuthPopup();
-        checkPendingActions();
+        // Simple email and password validation
+        if (validateEmail(email) && password.length >= 6) {
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password);
+            isLoggedIn = true;
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Sign up successful!');
+            closeAuthPopup();
+            checkPendingActions();
+            updateAuthLinks();
+        } else {
+            alert('Please enter a valid email and password (minimum 6 characters).');
+        }
     }
-    updateAuthLinks();
 });
+
+// Email validation function
+function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 // Function to update navigation based on login state
 function updateAuthLinks() {
@@ -98,10 +85,14 @@ function updateAuthLinks() {
 
 // Function to handle sign out
 function signOut() {
-    isLoggedIn = false;
-    localStorage.setItem('isLoggedIn', 'false');
-    alert('You have been signed out.');
-    updateAuthLinks();
+    if (confirm('Are you sure you want to sign out?')) {
+        isLoggedIn = false;
+        localStorage.setItem('isLoggedIn', 'false');
+        alert('You have been signed out.');
+        updateAuthLinks();
+        // Redirect to home page after sign out
+        window.location.href = 'index.html';
+    }
 }
 
 // Add to Cart function with login check
@@ -157,19 +148,19 @@ function displayCartItems() {
         cartItemsContainer.innerHTML += `
           <tr>
             <td>${item.name}</td>
-            <td>₹${item.price}</td>
+            <td>₹${item.price.toLocaleString()}</td>
             <td>
-              <button onclick="changeQuantity(${index}, -1)">-</button>
-              ${item.quantity}
-              <button onclick="changeQuantity(${index}, 1)">+</button>
+              <button onclick="changeQuantity(${index}, -1)" class="quantity-btn">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)" class="quantity-btn">+</button>
             </td>
-            <td>₹${subtotal}</td>
-            <td><button onclick="removeFromCart(${index})">Remove</button></td>
+            <td>₹${subtotal.toLocaleString()}</td>
+            <td><button onclick="removeFromCart(${index})" class="remove-btn"><i class="fas fa-trash-alt"></i></button></td>
           </tr>
         `;
     });
 
-    cartTotalElement.innerText = cartTotal;
+    cartTotalElement.innerText = cartTotal.toLocaleString();
     updateCartCount();
 }
 
@@ -186,10 +177,12 @@ function changeQuantity(index, delta) {
 
 // Function to remove an item from the cart
 function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCartItems();
+    if (confirm('Are you sure you want to remove this item from your cart?')) {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems();
+    }
 }
 
 // Function to handle checkout
@@ -202,6 +195,50 @@ function checkout() {
     const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     window.location.href = `payment.html?total=${encodeURIComponent(totalAmount)}`;
 }
+
+// Function to open order popup
+function openOrderPopup(productName, productPrice) {
+    document.getElementById('order-popup').style.display = 'flex';
+    document.getElementById('product').value = productName;
+    document.getElementById('price').value = productPrice;
+}
+
+// Function to close order popup
+function closeOrderPopup() {
+    document.getElementById('order-popup').style.display = 'none';
+}
+
+// Handle order form submission
+document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Simple order processing simulation
+    alert('Your order has been submitted successfully!');
+    // Clear cart after order
+    localStorage.removeItem('cart');
+    updateCartCount();
+    closeOrderPopup();
+    window.location.href = 'success.html';
+});
+
+// Handle contact form submission
+document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Simulate sending message
+    alert('Your message has been sent successfully!');
+    document.getElementById('contact-form').reset();
+});
+
+// Handle newsletter subscription
+document.getElementById('newsletter-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value.trim();
+    if (validateEmail(email)) {
+        alert('Thank you for subscribing to our newsletter!');
+        event.target.reset();
+    } else {
+        alert('Please enter a valid email address.');
+    }
+});
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
