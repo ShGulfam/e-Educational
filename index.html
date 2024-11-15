@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>e-Educational - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="index.js" defer></script>
 </head>
 <body>
@@ -16,17 +17,16 @@
   <header>
     <div class="container">
       <div class="logo">
-        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/e-educational.webp" alt="e-Educational Logo"></a>
+        <a href="index.html"><img src="images/logo.png" alt="e-Educational Logo"></a>
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="support.html">Support</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="account.html">My Account</a></li>
           <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
-        </ul>
         </ul>
       </nav>
     </div>
@@ -34,9 +34,11 @@
 
   <!-- Hero Section -->
   <section id="hero">
+    <div class="overlay"></div>
     <div class="container">
       <h1>Welcome to e-Educational</h1>
       <p>Your One-Stop Shop for Quality Electronics</p>
+      <a href="products.html" class="btn">Shop Now</a>
     </div>
   </section>
 
@@ -48,36 +50,39 @@
         <!-- Product Cards -->
         <!-- Product 1 -->
         <div class="product-card">
-          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/computer.png" alt="High-Performance Laptop">
+          <img src="images/computer.png" alt="High-Performance Laptop">
           <h3>High-Performance Laptop</h3>
           <p class="price">₹98,000 <span class="discount">Save 10%</span></p>
           <p class="description">Powerful specs to handle any task, from office work to graphic design.</p>
-          <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn">Buy Now</button>
+          <button onclick="addToCart('High-Performance Laptop', 98000)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn btn-secondary">Buy Now</button>
         </div>
-        <!-- Repeat for other products -->
         <!-- Product 2 -->
         <div class="product-card">
-          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/mouse.png" alt="Wireless Keyboard and Mouse Combo">
+          <img src="images/mouse.png" alt="Wireless Keyboard and Mouse Combo">
           <h3>Wireless Keyboard and Mouse Combo</h3>
           <p class="price">₹4,980</p>
           <p class="description">Perfect for productivity on the go.</p>
-          <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Buy Now</button>
+          <button onclick="addToCart('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn btn-secondary">Buy Now</button>
         </div>
         <!-- Product 3 -->
         <div class="product-card">
-          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/antivirus.png" alt="Antivirus Software">
+          <img src="images/antivirus.png" alt="Antivirus Software">
           <h3>Antivirus Software (1-Year Subscription)</h3>
           <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
           <p class="description">Protect your computer from viruses and malware.</p>
-          <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn">Buy Now</button>
+          <button onclick="addToCart('Antivirus Software', 3320)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn btn-secondary">Buy Now</button>
         </div>
         <!-- Product 4 -->
         <div class="product-card">
-          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_hdd.png" alt="External Hard Drive">
+          <img src="images/external_hdd.png" alt="External Hard Drive">
           <h3>External Hard Drive (1TB)</h3>
           <p class="price">₹6,640</p>
           <p class="description">Safely store and back up all your important files.</p>
-          <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn">Buy Now</button>
+          <button onclick="addToCart('External Hard Drive (1TB)', 6640)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn btn-secondary">Buy Now</button>
         </div>
       </div>
     </div>
@@ -186,27 +191,18 @@
     </div>
   </div>
 
-  <!-- Popup for Help Links -->
-  <div id="popup" class="popup">
+  <!-- Auth Popup (Sign In/Sign Up) -->
+  <div id="auth-popup" class="popup">
     <div class="popup-content">
-      <span class="close-btn" onclick="closePopup()">&times;</span>
-      <p id="popup-text"></p>
+      <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+      <h2 id="auth-title">Sign In</h2>
+      <form id="auth-form">
+        <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+        <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+        <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+        <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
+      </form>
     </div>
   </div>
-
-  <!-- Sign Up/Sign In Popup Modal -->
-<div id="auth-popup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
-    <h2 id="auth-title">Sign In</h2>
-    <form id="auth-form">
-      <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
-      <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
-      <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
-      <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
-    </form>
-  </div>
-</div>
-
 </body>
 </html>
