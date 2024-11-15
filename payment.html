@@ -2,26 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Payment Page</title>
+  <title>Payment Page - e-Educational</title>
   <link rel="stylesheet" href="styles.css">
   <script src="payment.js" defer></script>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <h1>Complete Your Payment</h1>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
+  <!-- Payment Details -->
   <section id="payment-details">
-    <h2>Order Summary</h2>
-    <p id="product-name">Product: Loading...</p>
-    <p id="amount">Amount: ₹0</p>
-    <button id="upi-button" onclick="payWithUPI()">Pay Using UPI</button>
+    <div class="container">
+      <h2>Complete Your Payment</h2>
+      <p id="product-name">Product: Loading...</p>
+      <p id="amount">Amount: ₹0</p>
+      <button id="upi-button" class="btn" onclick="payWithUPI()">Pay Using UPI</button>
+      <p class="secure-payment"><i class="fas fa-lock"></i> Secure Payment Gateway</p>
+    </div>
   </section>
 
   <!-- Footer Section -->
   <footer>
-    <p>© 2023 e-Educational. All rights reserved.</p>
-    <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+    <div class="container">
+      <!-- Include the same footer as in index.html -->
+      <!-- ... -->
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
