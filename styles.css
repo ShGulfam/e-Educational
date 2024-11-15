@@ -398,3 +398,32 @@ footer p {
   background-color: #0056b3;
 }
 
+/* Navigation Menu */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Support Page Styles */
+#support-content {
+  padding: 20px;
+}
+
+#support-content h2, #support-content h3, #support-content h4 {
+  margin-top: 20px;
+}
+
+#support-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
