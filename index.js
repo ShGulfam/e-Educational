@@ -11,7 +11,7 @@ function closeOrderPopup() {
 }
 
 // Handle form submission to redirect to the payment page with product and price details
-document.getElementById('form').addEventListener('submit', function(event) {
+document.getElementById('order-form').addEventListener('submit', function(event) {
   event.preventDefault();
   const product = document.getElementById('product').value;
   const price = document.getElementById('price').value;
@@ -35,3 +35,10 @@ function showPopup(message) {
 function closePopup() {
   document.getElementById('popup').style.display = 'none';
 }
+
+// Newsletter form submission
+document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  alert('Thank you for subscribing to our newsletter!');
+  document.getElementById('newsletter-form').reset();
+});
