@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Support - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   
@@ -20,28 +25,54 @@
           <li><a href="support.html" class="active">Support</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="account.html">My Account</a></li>
-          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Support Content -->
-  <main>
+  <section id="support-page">
     <div class="container">
-      <section id="support-content">
-        <h2>How Can We Help You?</h2>
-        <p>If you have any questions, concerns, or need assistance with your orders, please feel free to reach out to us.</p>
+      <h2>How Can We Help You?</h2>
+      <p>If you have any questions, concerns, or need assistance with your orders, please feel free to reach out to us.</p>
 
-        <h3>Frequently Asked Questions</h3>
-        <ul>
-          <li><a href="#shipping">What are your shipping times?</a></li>
-          <li><a href="#returns">What is your return policy?</a></li>
-          <li><a href="#payment">What payment methods do you accept?</a></li>
-          <li><a href="#order-status">How can I check my order status?</a></li>
-          <li><a href="#account">How do I create an account?</a></li>
-        </ul>
+      <h3>Frequently Asked Questions</h3>
+      <ul class="faq-list">
+        <li>
+          <a href="#shipping">What are your shipping times?</a>
+        </li>
+        <li>
+          <a href="#returns">What is your return policy?</a>
+        </li>
+        <li>
+          <a href="#payment">What payment methods do you accept?</a>
+        </li>
+        <li>
+          <a href="#order-status">How can I check my order status?</a>
+        </li>
+        <li>
+          <a href="#account">How do I create an account?</a>
+        </li>
+        <li>
+          <a href="#cancellation">How do I cancel my order?</a>
+        </li>
+        <li>
+          <a href="#product-info">Where can I find detailed product information?</a>
+        </li>
+        <li>
+          <a href="#technical-support">Do you offer technical support?</a>
+        </li>
+        <li>
+          <a href="#bulk-orders">Can I place bulk orders?</a>
+        </li>
+        <li>
+          <a href="#privacy">How is my personal information protected?</a>
+        </li>
+      </ul>
 
+      <!-- FAQ Answers -->
+      <div class="faq-answers">
         <h4 id="shipping">Shipping Information</h4>
         <p>Our standard shipping times are 5-7 business days. Express shipping options are available at checkout for faster delivery.</p>
 
@@ -57,22 +88,63 @@
         <h4 id="account">Account Creation</h4>
         <p>To create an account, click on "My Account" at the top of the page and fill out the registration form.</p>
 
-        <h3>Contact Support</h3>
-        <p>If your question wasn't answered here, you can contact us directly:</p>
-        <ul>
-          <li>Email: <a href="mailto:support@e-educational.com">support@e-educational.com</a></li>
-          <li>Phone: +91-9469050879</li>
-          <li>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</li>
-        </ul>
-      </section>
+        <h4 id="cancellation">Order Cancellation</h4>
+        <p>If you need to cancel your order, please contact our support team within 24 hours of placing the order. After this period, cancellation may not be possible.</p>
+
+        <h4 id="product-info">Product Information</h4>
+        <p>Detailed product information, including specifications and user manuals, can be found on each product's page under the "Description" tab.</p>
+
+        <h4 id="technical-support">Technical Support</h4>
+        <p>Yes, we offer technical support for all our products. You can reach out to our support team via email or phone for any technical assistance.</p>
+
+        <h4 id="bulk-orders">Bulk Orders</h4>
+        <p>We accommodate bulk orders for educational institutions and businesses. Please contact our sales team for special pricing and arrangements.</p>
+
+        <h4 id="privacy">Privacy and Data Protection</h4>
+        <p>Your personal information is protected through our comprehensive privacy policy. We use secure servers and encryption to ensure your data remains confidential.</p>
+      </div>
+
+      <!-- Contact Support -->
+      <h3>Contact Support</h3>
+      <p>If your question wasn't answered here, you can contact us directly:</p>
+      <ul>
+        <li>Email: <a href="mailto:support@e-educational.com">support@e-educational.com</a></li>
+        <li>Phone: +91-9469050879</li>
+        <li>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</li>
+      </ul>
     </div>
-  </main>
+  </section>
 
   <!-- Footer Section -->
   <footer>
     <div class="container">
-      <!-- Include the same footer as in index.html -->
-      <!-- ... -->
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
       <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
     </div>
   </footer>
