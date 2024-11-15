@@ -579,3 +579,52 @@ footer {
   }
 }
 
+/* Auth Popup Styling */
+#auth-popup .popup-content {
+  max-width: 400px;
+}
+
+#auth-popup h2 {
+  margin-bottom: 20px;
+}
+
+#auth-popup input[type="email"],
+#auth-popup input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#auth-popup #auth-toggle {
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+#auth-popup #auth-toggle a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#auth-popup #auth-toggle a:hover {
+  text-decoration: underline;
+}
+
+#auth-popup .btn {
+  background: #007bff;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#auth-popup .btn:hover {
+  background: #0056b3;
+}
+
+
