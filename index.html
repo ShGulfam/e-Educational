@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>e-Educational</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://pay.google.com/gp/p/js/pay.js" async></script>
   <script src="index.js" defer></script>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
     <h1>e-Educational</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
     <p>Explore our selection of computers, peripherals, and software.</p>
   </header>
-  
+
   <!-- Product Section -->
   <section id="products">
     <h2>Available Products</h2>
@@ -86,8 +93,7 @@
       <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)">Order Now</button>
       <button onclick="addToCart('External Hard Drive (1TB)')">Add to Cart</button>
     </div>
-
-      </section>
+  </section>
 
   <!-- Order Form Popup Modal -->
   <div id="order-popup" class="popup">
@@ -119,14 +125,15 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: e.educational.24@gmail.com</p>
+    <p>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
     <p>Phone: +91-9469050879</p>
-    <p>Address: Hardu-Shichen Dialgam, Anantnag Kmr.</p>
+    <p>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
   </section>
 
   <!-- Footer Section -->
   <footer>
     <p>© 2023 e-Educational. All rights reserved.</p>
+    <p><a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
   </footer>
 
   <!-- Popup for Help Links -->
@@ -136,37 +143,8 @@
       <p id="popup-text"></p>
     </div>
   </div>
-<header>
-  <h1>e-Educational</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
-  <p>Explore our selection of computers, peripherals, and software.</p>
-</header>
 
-  <script>
-    function openOrderPopup(productName, productPrice) {
-      document.getElementById('product').value = productName;
-      document.getElementById('price').value = productPrice;
-      document.getElementById('order-popup').style.display = 'flex';
-    }
-
-    function closeOrderPopup() {
-      document.getElementById('order-popup').style.display = 'none';
-    }
-
-    function showPopup(message) {
-      document.getElementById('popup-text').innerText = message;
-      document.getElementById('popup').style.display = 'flex';
-    }
-
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-  </script>
+  <!-- Scripts -->
+  <script src="index.js"></script>
 </body>
 </html>
