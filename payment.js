@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
 function payWithUPI() {
   alert('UPI Payment initiated successfully!');
   // Redirect to a success page or show confirmation message
-  window.location.href = 'success.html';  // Create this page for payment confirmation
+  window.location.href = 'success.html';
 }
