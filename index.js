@@ -24,3 +24,14 @@ document.getElementById('form').addEventListener('submit', function(event) {
 function addToCart(productName) {
   alert(`${productName} has been added to your cart!`);
 }
+
+// Function to show help popups
+function showPopup(message) {
+  document.getElementById('popup-text').innerText = message;
+  document.getElementById('popup').style.display = 'flex';
+}
+
+// Function to close help popup
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
