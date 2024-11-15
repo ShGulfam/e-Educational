@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const amount = getQueryParam('price');
 
   document.getElementById('product-name').textContent = `Product: ${productName}`;
-  document.getElementById('amount').textContent = `Amount: $${amount}`;
+  document.getElementById('amount').textContent = `Amount: ₹${amount}`;
 });
 
 // Simulate UPI payment
