@@ -46,5 +46,20 @@
       <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Sign Up/Sign In Popup Modal -->
+<div id="auth-popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+    <h2 id="auth-title">Sign In</h2>
+    <form id="auth-form">
+      <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+      <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+      <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+      <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
