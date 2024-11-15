@@ -74,7 +74,7 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 #hero {
-  background: url('images/hero-banner.jpg') no-repeat center center/cover;
+  background: url('https://shgulfam.github.io/e-Educational/') no-repeat center center/cover;
   color: #fff;
   height: 60vh;
   position: relative;
