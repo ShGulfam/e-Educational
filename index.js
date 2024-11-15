@@ -13,6 +13,7 @@ function closeAuthPopup() {
     document.getElementById('auth-popup').style.display = 'none';
 }
 
+
 // Toggle between Sign In and Sign Up modes
 function toggleAuthMode() {
     const authTitle = document.getElementById('auth-title');
