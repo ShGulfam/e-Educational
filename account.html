@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account - e-Educational</title>
+  <!-- Responsive Meta Tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- JavaScript File -->
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html" class="active">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Account Page Content -->
+  <section id="account-page">
+    <div class="container">
+      <h2>My Account</h2>
+      <div class="account-details">
+        <form id="account-form">
+          <label for="account-name">Name</label>
+          <input type="text" id="account-name" name="name" placeholder="Your Name" required>
+
+          <label for="account-email">Email</label>
+          <input type="email" id="account-email" name="email" placeholder="Your Email" required>
+
+          <label for="account-password">Password</label>
+          <input type="password" id="account-password" name="password" placeholder="New Password">
+
+          <button type="submit" class="btn">Update Account</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <!-- Include the same footer as in index.html -->
+      <div class="footer-grid">
+        <!-- Footer content here -->
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
