@@ -3,15 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>My Account - e-Educational</title>
-  <!-- Responsive Meta Tag -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- JavaScript File -->
   <script src="index.js" defer></script>
 </head>
 <body>
@@ -55,10 +50,25 @@
     </div>
   </section>
 
+  <!-- Auth Popup (Sign In/Sign Up) -->
+  <div id="auth-popup" style="display: none;" class="popup-container">
+    <div class="popup">
+      <h3 id="auth-title">Sign In</h3>
+      <form id="auth-form">
+        <label for="auth-email">Email</label>
+        <input type="email" id="auth-email" required>
+        <label for="auth-password">Password</label>
+        <input type="password" id="auth-password" required>
+        <button id="auth-submit-btn" type="submit">Sign In</button>
+      </form>
+      <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+      <button onclick="closeAuthPopup()">Close</button>
+    </div>
+  </div>
+
   <!-- Footer Section -->
   <footer>
     <div class="container">
-      <!-- Include the same footer as in index.html -->
       <div class="footer-grid">
         <!-- Footer content here -->
       </div>
