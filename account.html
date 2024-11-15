@@ -5,8 +5,10 @@
   <title>My Account - e-Educational</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="index.js" defer></script>
 </head>
 <body>
@@ -34,35 +36,43 @@
     <div class="container">
       <h2>My Account</h2>
       <div class="account-details">
-        <form id="account-form">
-          <label for="account-name">Name</label>
-          <input type="text" id="account-name" name="name" placeholder="Your Name" required>
+        <!-- If User is Logged In -->
+        <div id="logged-in-section" style="display: none;">
+          <p>Welcome, <span id="user-name"></span>!</p>
+          <form id="update-account-form">
+            <label for="update-name">Name</label>
+            <input type="text" id="update-name" name="name" placeholder="Your Name" required>
 
-          <label for="account-email">Email</label>
-          <input type="email" id="account-email" name="email" placeholder="Your Email" required>
+            <label for="update-email">Email</label>
+            <input type="email" id="update-email" name="email" placeholder="Your Email" required>
 
-          <label for="account-password">Password</label>
-          <input type="password" id="account-password" name="password" placeholder="Password">
+            <label for="update-password">Password</label>
+            <input type="password" id="update-password" name="password" placeholder="New Password">
 
-          <button type="submit" class="btn">Create Account</button>
-        </form>
+            <button type="submit" class="btn">Update Account</button>
+          </form>
+          <button onclick="signOut()" class="btn btn-secondary">Sign Out</button>
+        </div>
+
+        <!-- If User is Not Logged In -->
+        <div id="not-logged-in-section">
+          <p>You are not logged in. Please <a href="#" onclick="openAuthPopup()">Sign In</a> or <a href="#" onclick="openAuthPopup()">Sign Up</a> to manage your account.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Auth Popup (Sign In/Sign Up) -->
-  <div id="auth-popup" style="display: none;" class="popup-container">
-    <div class="popup">
-      <h3 id="auth-title">Sign In</h3>
+  <div id="auth-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+      <h2 id="auth-title">Sign In</h2>
       <form id="auth-form">
-        <label for="auth-email">Email</label>
-        <input type="email" id="auth-email" required>
-        <label for="auth-password">Password</label>
-        <input type="password" id="auth-password" required>
-        <button id="auth-submit-btn" type="submit">Sign In</button>
+        <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+        <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+        <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+        <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
       </form>
-      <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
-      <button onclick="closeAuthPopup()">Close</button>
     </div>
   </div>
 
@@ -70,7 +80,31 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
-        <!-- Footer content here -->
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
       </div>
       <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
     </div>
