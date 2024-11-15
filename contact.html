@@ -3,36 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <title>e-Educational - Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <h1>e-Educational Contact</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-
-  
-  <main>
-    <section id="contact-content">
+  <!-- Contact Page Content -->
+  <section id="contact-page">
+    <div class="container">
       <h2>Get in Touch</h2>
-      <p>We'd love to hear from you! Here's how you can reach us:</p>
-      <ul>
-        <li>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></li>
-        <li>Phone: +91-9469050879</li>
-        <li>Address: Hardu-Shichen Dialgam, Anantnag Kmr.</li>
-      </ul>
-    </section>
-  </main>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <p>Phone: +91-9469050879</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
 
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
+
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
   <footer>
-    <p>© 2023 e-Educational. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
