@@ -30,12 +30,11 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
           <li><a href="support.html">Support</a></li>
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="account.html">My Account</a></li>
           <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
-        </ul>
         </ul>
       </nav>
     </div>
@@ -46,278 +45,364 @@
     <div class="container">
       <h2>Our Products</h2>
       <div class="product-grid">
-        <!-- Product Cards -->
         <!-- Product 1 -->
         <div class="product-card">
-          <i class="fas fa-laptop fa-3x product-icon"></i>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/computer.png" alt="High-Performance Laptop">
           <h3>High-Performance Laptop</h3>
           <p class="price">₹98,000 <span class="discount">Save 10%</span></p>
-          <p class="description">Powerful specs for all your tasks.</p>
-          <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('High-Performance Laptop', 98000)" class="btn">Add to Cart</button>
+          <p class="description">Powerful specs to handle any task, from office work to graphic design.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('High-Performance Laptop', 98000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 2 -->
         <div class="product-card">
-          <i class="fas fa-desktop fa-3x product-icon"></i>
-          <h3>Gaming Desktop</h3>
-          <p class="price">₹120,000 <span class="discount">Save 15%</span></p>
-          <p class="description">Ultimate performance for gamers.</p>
-          <button onclick="openOrderPopup('Gaming Desktop', 120000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Gaming Desktop', 120000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/mouse.png" alt="Wireless Keyboard and Mouse Combo">
+          <h3>Wireless Keyboard and Mouse Combo</h3>
+          <p class="price">₹4,980</p>
+          <p class="description">Perfect for productivity on the go with seamless connectivity.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 3 -->
         <div class="product-card">
-          <i class="fas fa-keyboard fa-3x product-icon"></i>
-          <h3>Mechanical Keyboard</h3>
-          <p class="price">₹5,000</p>
-          <p class="description">Responsive keys for efficient typing.</p>
-          <button onclick="openOrderPopup('Mechanical Keyboard', 5000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Mechanical Keyboard', 5000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/antivirus.png" alt="Antivirus Software">
+          <h3>Antivirus Software (1-Year Subscription)</h3>
+          <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
+          <p class="description">Protect your computer from viruses and malware with our comprehensive antivirus solution.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Antivirus Software', 3320)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 4 -->
         <div class="product-card">
-          <i class="fas fa-mouse fa-3x product-icon"></i>
-          <h3>Wireless Mouse</h3>
-          <p class="price">₹1,500</p>
-          <p class="description">Comfortable and precise control.</p>
-          <button onclick="openOrderPopup('Wireless Mouse', 1500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Wireless Mouse', 1500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_hdd.png" alt="External Hard Drive">
+          <h3>External Hard Drive (1TB)</h3>
+          <p class="price">₹6,640</p>
+          <p class="description">Safely store and back up all your important files with ease.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External Hard Drive (1TB)', 6640)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 5 -->
         <div class="product-card">
-          <i class="fas fa-headphones fa-3x product-icon"></i>
-          <h3>Noise-Cancelling Headphones</h3>
-          <p class="price">₹8,000</p>
-          <p class="description">Immerse yourself in music.</p>
-          <button onclick="openOrderPopup('Noise-Cancelling Headphones', 8000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Noise-Cancelling Headphones', 8000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/keyboard.png" alt="Mechanical Keyboard">
+          <h3>Mechanical Keyboard</h3>
+          <p class="price">₹5,000</p>
+          <p class="description">Responsive keys for efficient and comfortable typing experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Mechanical Keyboard', 5000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Mechanical Keyboard', 5000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 6 -->
         <div class="product-card">
-          <i class="fas fa-tv fa-3x product-icon"></i>
-          <h3>24" LED Monitor</h3>
-          <p class="price">₹10,000</p>
-          <p class="description">Crisp visuals for work and play.</p>
-          <button onclick="openOrderPopup('24\" LED Monitor', 10000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('24\" LED Monitor', 10000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/wireless_mouse.png" alt="Wireless Mouse">
+          <h3>Wireless Mouse</h3>
+          <p class="price">₹1,500</p>
+          <p class="description">Comfortable and precise control with long-lasting battery life.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Mouse', 1500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Mouse', 1500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 7 -->
         <div class="product-card">
-          <i class="fas fa-wifi fa-3x product-icon"></i>
-          <h3>Wireless Router</h3>
-          <p class="price">₹3,500</p>
-          <p class="description">Fast and reliable internet connection.</p>
-          <button onclick="openOrderPopup('Wireless Router', 3500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Wireless Router', 3500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/monitor.png" alt="24\" LED Monitor">
+          <h3>24" LED Monitor</h3>
+          <p class="price">₹10,000</p>
+          <p class="description">Crisp visuals and vibrant colors for work and play.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('24\" LED Monitor', 10000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('24\" LED Monitor', 10000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 8 -->
         <div class="product-card">
-          <i class="fas fa-hdd fa-3x product-icon"></i>
-          <h3>1TB SSD</h3>
-          <p class="price">₹12,000</p>
-          <p class="description">Upgrade your storage speed.</p>
-          <button onclick="openOrderPopup('1TB SSD', 12000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('1TB SSD', 12000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/router.png" alt="Wireless Router">
+          <h3>Wireless Router</h3>
+          <p class="price">₹3,500</p>
+          <p class="description">Fast and reliable internet connection with extensive coverage.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Router', 3500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Router', 3500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 9 -->
         <div class="product-card">
-          <i class="fas fa-usb fa-3x product-icon"></i>
-          <h3>64GB USB Flash Drive</h3>
-          <p class="price">₹1,200</p>
-          <p class="description">Portable storage on the go.</p>
-          <button onclick="openOrderPopup('64GB USB Flash Drive', 1200)" class="btn">Buy Now</button>
-          <button onclick="addToCart('64GB USB Flash Drive', 1200)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/ssd.png" alt="1TB SSD">
+          <h3>1TB SSD</h3>
+          <p class="price">₹12,000</p>
+          <p class="description">Upgrade your storage speed with our high-performance SSD.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('1TB SSD', 12000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('1TB SSD', 12000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 10 -->
         <div class="product-card">
-          <i class="fas fa-print fa-3x product-icon"></i>
-          <h3>Wireless Printer</h3>
-          <p class="price">₹10,500</p>
-          <p class="description">Convenient printing without cables.</p>
-          <button onclick="openOrderPopup('Wireless Printer', 10500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Wireless Printer', 10500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/usb_flash_drive.png" alt="64GB USB Flash Drive">
+          <h3>64GB USB Flash Drive</h3>
+          <p class="price">₹1,200</p>
+          <p class="description">Portable storage on the go with high-speed data transfer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('64GB USB Flash Drive', 1200)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('64GB USB Flash Drive', 1200)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 11 -->
         <div class="product-card">
-          <i class="fas fa-tablet-alt fa-3x product-icon"></i>
-          <h3>Android Tablet</h3>
-          <p class="price">₹15,000</p>
-          <p class="description">Entertainment and productivity on the go.</p>
-          <button onclick="openOrderPopup('Android Tablet', 15000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Android Tablet', 15000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/printer.png" alt="Wireless Printer">
+          <h3>Wireless Printer</h3>
+          <p class="price">₹10,500</p>
+          <p class="description">Convenient printing without the hassle of cables.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Printer', 10500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Printer', 10500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 12 -->
         <div class="product-card">
-          <i class="fas fa-memory fa-3x product-icon"></i>
-          <h3>16GB RAM Module</h3>
-          <p class="price">₹6,000</p>
-          <p class="description">Boost your computer's performance.</p>
-          <button onclick="openOrderPopup('16GB RAM Module', 6000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('16GB RAM Module', 6000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/tablet.png" alt="Android Tablet">
+          <h3>Android Tablet</h3>
+          <p class="price">₹15,000</p>
+          <p class="description">Entertainment and productivity on the go with a sleek design.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Android Tablet', 15000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Android Tablet', 15000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 13 -->
         <div class="product-card">
-          <i class="fas fa-microchip fa-3x product-icon"></i>
-          <h3>Intel Core i9 Processor</h3>
-          <p class="price">₹35,000</p>
-          <p class="description">Experience unmatched speed.</p>
-          <button onclick="openOrderPopup('Intel Core i9 Processor', 35000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Intel Core i9 Processor', 35000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/ram.png" alt="16GB RAM Module">
+          <h3>16GB RAM Module</h3>
+          <p class="price">₹6,000</p>
+          <p class="description">Boost your computer's performance with additional memory.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('16GB RAM Module', 6000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('16GB RAM Module', 6000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 14 -->
         <div class="product-card">
-          <i class="fas fa-camera fa-3x product-icon"></i>
-          <h3>Webcam with Microphone</h3>
-          <p class="price">₹2,500</p>
-          <p class="description">Stay connected with high-quality video.</p>
-          <button onclick="openOrderPopup('Webcam with Microphone', 2500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Webcam with Microphone', 2500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/processor.png" alt="Intel Core i9 Processor">
+          <h3>Intel Core i9 Processor</h3>
+          <p class="price">₹35,000</p>
+          <p class="description">Experience unmatched speed and performance for demanding applications.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Intel Core i9 Processor', 35000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Intel Core i9 Processor', 35000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 15 -->
         <div class="product-card">
-          <i class="fas fa-projector fa-3x product-icon"></i>
-          <h3>Portable Projector</h3>
-          <p class="price">₹20,000</p>
-          <p class="description">Bring presentations anywhere.</p>
-          <button onclick="openOrderPopup('Portable Projector', 20000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Portable Projector', 20000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/webcam.png" alt="Webcam with Microphone">
+          <h3>Webcam with Microphone</h3>
+          <p class="price">₹2,500</p>
+          <p class="description">Stay connected with high-quality video and clear audio.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Webcam with Microphone', 2500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Webcam with Microphone', 2500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 16 -->
         <div class="product-card">
-          <i class="fas fa-headset fa-3x product-icon"></i>
-          <h3>Gaming Headset</h3>
-          <p class="price">₹4,500</p>
-          <p class="description">Immersive sound for gaming.</p>
-          <button onclick="openOrderPopup('Gaming Headset', 4500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Gaming Headset', 4500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/projector.png" alt="Portable Projector">
+          <h3>Portable Projector</h3>
+          <p class="price">₹20,000</p>
+          <p class="description">Bring presentations anywhere with ease and clarity.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Portable Projector', 20000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Portable Projector', 20000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 17 -->
         <div class="product-card">
-          <i class="fas fa-network-wired fa-3x product-icon"></i>
-          <h3>Network Switch</h3>
-          <p class="price">₹7,000</p>
-          <p class="description">Expand your wired network.</p>
-          <button onclick="openOrderPopup('Network Switch', 7000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Network Switch', 7000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/gaming_headset.png" alt="Gaming Headset">
+          <h3>Gaming Headset</h3>
+          <p class="price">₹4,500</p>
+          <p class="description">Immersive sound quality for an enhanced gaming experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Gaming Headset', 4500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Gaming Headset', 4500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 18 -->
         <div class="product-card">
-          <i class="fas fa-battery-full fa-3x product-icon"></i>
-          <h3>UPS Battery Backup</h3>
-          <p class="price">₹9,000</p>
-          <p class="description">Protect your devices from power outages.</p>
-          <button onclick="openOrderPopup('UPS Battery Backup', 9000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('UPS Battery Backup', 9000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/network_switch.png" alt="Network Switch">
+          <h3>Network Switch</h3>
+          <p class="price">₹7,000</p>
+          <p class="description">Expand your wired network with ease and reliability.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Network Switch', 7000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Network Switch', 7000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 19 -->
         <div class="product-card">
-          <i class="fas fa-server fa-3x product-icon"></i>
-          <h3>External Hard Drive (2TB)</h3>
-          <p class="price">₹8,500</p>
-          <p class="description">Ample storage for your files.</p>
-          <button onclick="openOrderPopup('External Hard Drive (2TB)', 8500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('External Hard Drive (2TB)', 8500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/ups.png" alt="UPS Battery Backup">
+          <h3>UPS Battery Backup</h3>
+          <p class="price">₹9,000</p>
+          <p class="description">Protect your devices from power outages with reliable backup power.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('UPS Battery Backup', 9000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('UPS Battery Backup', 9000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 20 -->
         <div class="product-card">
-          <i class="fas fa-sd-card fa-3x product-icon"></i>
-          <h3>128GB SD Card</h3>
-          <p class="price">₹2,000</p>
-          <p class="description">Expand storage for cameras and devices.</p>
-          <button onclick="openOrderPopup('128GB SD Card', 2000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('128GB SD Card', 2000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_hdd_2tb.png" alt="External Hard Drive (2TB)">
+          <h3>External Hard Drive (2TB)</h3>
+          <p class="price">₹8,500</p>
+          <p class="description">Ample storage for all your important files and backups.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External Hard Drive (2TB)', 8500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External Hard Drive (2TB)', 8500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 21 -->
         <div class="product-card">
-          <i class="fas fa-blender fa-3x product-icon"></i>
-          <h3>Graphics Tablet</h3>
-          <p class="price">₹12,500</p>
-          <p class="description">For artists and designers.</p>
-          <button onclick="openOrderPopup('Graphics Tablet', 12500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Graphics Tablet', 12500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/sd_card.png" alt="128GB SD Card">
+          <h3>128GB SD Card</h3>
+          <p class="price">₹2,000</p>
+          <p class="description">Expand storage for your cameras and devices with high-speed data transfer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('128GB SD Card', 2000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('128GB SD Card', 2000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 22 -->
         <div class="product-card">
-          <i class="fas fa-satellite-dish fa-3x product-icon"></i>
-          <h3>External DVD Writer</h3>
-          <p class="price">₹3,000</p>
-          <p class="description">Read and write CDs/DVDs.</p>
-          <button onclick="openOrderPopup('External DVD Writer', 3000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('External DVD Writer', 3000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/graphics_tablet.png" alt="Graphics Tablet">
+          <h3>Graphics Tablet</h3>
+          <p class="price">₹12,500</p>
+          <p class="description">For artists and designers to create with precision and ease.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Graphics Tablet', 12500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Graphics Tablet', 12500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 23 -->
         <div class="product-card">
-          <i class="fas fa-code fa-3x product-icon"></i>
-          <h3>Software Development Kit</h3>
-          <p class="price">₹5,500</p>
-          <p class="description">All you need to start coding.</p>
-          <button onclick="openOrderPopup('Software Development Kit', 5500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Software Development Kit', 5500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_dvd_writer.png" alt="External DVD Writer">
+          <h3>External DVD Writer</h3>
+          <p class="price">₹3,000</p>
+          <p class="description">Read and write CDs/DVDs with ease using our compact external writer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External DVD Writer', 3000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External DVD Writer', 3000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 24 -->
         <div class="product-card">
-          <i class="fas fa-ethernet fa-3x product-icon"></i>
-          <h3>Ethernet Cable (10m)</h3>
-          <p class="price">₹800</p>
-          <p class="description">High-speed data transfer.</p>
-          <button onclick="openOrderPopup('Ethernet Cable (10m)', 800)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Ethernet Cable (10m)', 800)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/software_development_kit.png" alt="Software Development Kit">
+          <h3>Software Development Kit</h3>
+          <p class="price">₹5,500</p>
+          <p class="description">All you need to start coding and developing your own software.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Software Development Kit', 5500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Software Development Kit', 5500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 25 -->
         <div class="product-card">
-          <i class="fas fa-bullhorn fa-3x product-icon"></i>
-          <h3>Computer Speakers</h3>
-          <p class="price">₹2,200</p>
-          <p class="description">Enhance your audio experience.</p>
-          <button onclick="openOrderPopup('Computer Speakers', 2200)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Computer Speakers', 2200)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/ethernet_cable.png" alt="Ethernet Cable (10m)">
+          <h3>Ethernet Cable (10m)</h3>
+          <p class="price">₹800</p>
+          <p class="description">High-speed data transfer for reliable network connections.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Ethernet Cable (10m)', 800)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Ethernet Cable (10m)', 800)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 26 -->
         <div class="product-card">
-          <i class="fas fa-cloud fa-3x product-icon"></i>
-          <h3>Cloud Storage Subscription</h3>
-          <p class="price">₹1,500/year</p>
-          <p class="description">Secure online storage.</p>
-          <button onclick="openOrderPopup('Cloud Storage Subscription', 1500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Cloud Storage Subscription', 1500)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/computer_speakers.png" alt="Computer Speakers">
+          <h3>Computer Speakers</h3>
+          <p class="price">₹2,200</p>
+          <p class="description">Enhance your audio experience with rich and clear sound.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Computer Speakers', 2200)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Computer Speakers', 2200)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 27 -->
         <div class="product-card">
-          <i class="fas fa-gamepad fa-3x product-icon"></i>
-          <h3>Game Controller</h3>
-          <p class="price">₹3,000</p>
-          <p class="description">Compatible with PC and consoles.</p>
-          <button onclick="openOrderPopup('Game Controller', 3000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Game Controller', 3000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/cloud_storage.png" alt="Cloud Storage Subscription">
+          <h3>Cloud Storage Subscription</h3>
+          <p class="price">₹1,500/year</p>
+          <p class="description">Secure online storage with easy access from anywhere.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Cloud Storage Subscription', 1500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Cloud Storage Subscription', 1500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 28 -->
         <div class="product-card">
-          <i class="fas fa-lightbulb fa-3x product-icon"></i>
-          <h3>Smart LED Bulb</h3>
-          <p class="price">₹1,000</p>
-          <p class="description">Control lighting with your phone.</p>
-          <button onclick="openOrderPopup('Smart LED Bulb', 1000)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Smart LED Bulb', 1000)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/game_controller.png" alt="Game Controller">
+          <h3>Game Controller</h3>
+          <p class="price">₹3,000</p>
+          <p class="description">Compatible with PC and consoles for an immersive gaming experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Game Controller', 3000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Game Controller', 3000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 29 -->
         <div class="product-card">
-          <i class="fas fa-rocket fa-3x product-icon"></i>
-          <h3>Antivirus Software</h3>
-          <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
-          <p class="description">Protect your computer from threats.</p>
-          <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Antivirus Software', 3320)" class="btn">Add to Cart</button>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/smart_led_bulb.png" alt="Smart LED Bulb">
+          <h3>Smart LED Bulb</h3>
+          <p class="price">₹1,000</p>
+          <p class="description">Control lighting with your phone for convenience and energy savings.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Smart LED Bulb', 1000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Smart LED Bulb', 1000)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- Product 30 -->
         <div class="product-card">
-          <i class="fas fa-chalkboard-teacher fa-3x product-icon"></i>
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/online_course.png" alt="Online Course Subscription">
           <h3>Online Course Subscription</h3>
           <p class="price">₹2,500</p>
-          <p class="description">Learn new skills online.</p>
-          <button onclick="openOrderPopup('Online Course Subscription', 2500)" class="btn">Buy Now</button>
-          <button onclick="addToCart('Online Course Subscription', 2500)" class="btn">Add to Cart</button>
+          <p class="description">Access a wide range of courses to enhance your skills online.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Online Course Subscription', 2500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Online Course Subscription', 2500)" class="btn">Buy Now</button>
+          </div>
         </div>
         <!-- End of Product Cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="product-faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How do I add a product to my cart?</h3>
+        <p>Simply click on the "Add to Cart" button below the desired product. You can view your cart by clicking the cart icon in the navigation bar.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What payment methods are accepted?</h3>
+        <p>We accept all major credit and debit cards, net banking, UPI payments through Gpay, and wallet services.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I track my order?</h3>
+        <p>Yes, once your order is shipped, you will receive a tracking number via email which you can use to track your order status.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the return policy?</h3>
+        <p>We offer a 30-day return policy on all products. Please refer to our <a href="support.html#returns">Support</a> page for more details.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I create an account?</h3>
+        <p>To create an account, click on "My Account" at the top of the page and fill out the registration form.</p>
       </div>
     </div>
   </section>
@@ -325,7 +410,6 @@
   <!-- Footer Section -->
   <footer>
     <div class="container">
-      <!-- Include the same footer as in index.html -->
       <div class="footer-grid">
         <div class="footer-about">
           <h3>About e-Educational</h3>
@@ -380,5 +464,6 @@
       <p id="popup-text"></p>
     </div>
   </div>
+
 </body>
 </html>
