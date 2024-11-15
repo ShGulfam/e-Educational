@@ -6,6 +6,7 @@ function getQueryParam(param) {
   return urlParams.get(param);
 }
 
+
 // Display product and amount based on query parameters
 document.addEventListener('DOMContentLoaded', function() {
   const productName = getQueryParam('product');
