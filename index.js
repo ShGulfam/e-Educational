@@ -5,6 +5,7 @@ function openOrderPopup(productName, productPrice) {
   document.getElementById('order-popup').style.display = 'flex';
 }
 
+
 // Function to close the order form popup
 function closeOrderPopup() {
   document.getElementById('order-popup').style.display = 'none';
