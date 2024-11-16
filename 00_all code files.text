@@ -1,1 +1,2581 @@
+account.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="index.js" defer></script>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html" class="active">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Account Page Content -->
+  <section id="account-page">
+    <div class="container">
+      <h2>My Account</h2>
+      <div class="account-details">
+        <!-- If User is Logged In -->
+        <div id="logged-in-section" style="display: none;">
+          <p>Welcome, <span id="user-name"></span>!</p>
+          <form id="update-account-form">
+            <label for="update-name">Name</label>
+            <input type="text" id="update-name" name="name" placeholder="Your Name" required>
+
+            <label for="update-email">Email</label>
+            <input type="email" id="update-email" name="email" placeholder="Your Email" required>
+
+            <label for="update-password">Password</label>
+            <input type="password" id="update-password" name="password" placeholder="New Password">
+
+            <button type="submit" class="btn">Update Account</button>
+          </form>
+          <button onclick="signOut()" class="btn btn-secondary">Sign Out</button>
+        </div>
+
+        <!-- If User is Not Logged In -->
+        <div id="not-logged-in-section">
+          <p>You are not logged in. Please <a href="#" onclick="openAuthPopup()">Sign In</a> or <a href="#" onclick="openAuthPopup()">Sign Up</a> to manage your account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auth Popup (Sign In/Sign Up) -->
+  <div id="auth-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+      <h2 id="auth-title">Sign In</h2>
+      <form id="auth-form">
+        <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+        <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+        <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+        <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+cart.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="index.js" defer></script>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cart Page Content -->
+  <section id="cart-page">
+    <div class="container">
+      <h2>Your Shopping Cart</h2>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Subtotal (₹)</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Cart items will be dynamically inserted here -->
+        </tbody>
+      </table>
+      <p class="cart-total">Total: ₹<span id="cart-total">0</span></p>
+      <div class="cart-actions">
+        <a href="products.html" class="btn">Continue Shopping</a>
+        <button onclick="checkout()" class="btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+contact.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>e-Educational - Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Page Content -->
+  <section id="contact-page">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <p>Phone: +91-9469050879</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
+
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
+
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>e-Educational - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="index.js" defer></script>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>Welcome to e-Educational</h1>
+      <p>Your One-Stop Shop for Quality Electronics</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section id="featured-products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <!-- Product Cards -->
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/computer.png" alt="High-Performance Laptop">
+          <h3>High-Performance Laptop</h3>
+          <p class="price">₹98,000 <span class="discount">Save 10%</span></p>
+          <p class="description">Powerful specs to handle any task, from office work to graphic design.</p>
+          <button onclick="addToCart('High-Performance Laptop', 98000)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn btn-secondary">Buy Now</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/mouse.png" alt="Wireless Keyboard and Mouse Combo">
+          <h3>Wireless Keyboard and Mouse Combo</h3>
+          <p class="price">₹4,980</p>
+          <p class="description">Perfect for productivity on the go.</p>
+          <button onclick="addToCart('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn btn-secondary">Buy Now</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/antivirus.png" alt="Antivirus Software">
+          <h3>Antivirus Software (1-Year Subscription)</h3>
+          <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
+          <p class="description">Protect your computer from viruses and malware.</p>
+          <button onclick="addToCart('Antivirus Software', 3320)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn btn-secondary">Buy Now</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/external_hdd.png" alt="External Hard Drive">
+          <h3>External Hard Drive (1TB)</h3>
+          <p class="price">₹6,640</p>
+          <p class="description">Safely store and back up all your important files.</p>
+          <button onclick="addToCart('External Hard Drive (1TB)', 6640)" class="btn">Add to Cart</button>
+          <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn btn-secondary">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Indicators -->
+  <section id="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <i class="fas fa-shield-alt"></i>
+          <p>Secure Payments</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-truck"></i>
+          <p>Fast Shipping</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-headset"></i>
+          <p>24/7 Support</p>
+        </div>
+        <div class="trust-item">
+          <i class="fas fa-undo"></i>
+          <p>Easy Returns</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-item">
+          <p>"Excellent service and fast delivery. Highly recommended!"</p>
+          <h4>- Zakir Gulzar</h4>
+        </div>
+        <div class="testimonial-item">
+          <p>"Quality products with outstanding customer support."</p>
+          <h4>- Sheikh Jamid Hussain</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section id="newsletter">
+    <div class="container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest offers and products.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Order Form Popup Modal -->
+  <div id="order-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeOrderPopup()">&times;</span>
+      <h2>Order Form</h2>
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="address" placeholder="Delivery Address" required>
+        <input type="hidden" name="product" id="product">
+        <input type="hidden" name="price" id="price">
+        <button type="submit" class="btn">Submit Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auth Popup (Sign In/Sign Up) -->
+  <div id="auth-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+      <h2 id="auth-title">Sign In</h2>
+      <form id="auth-form">
+        <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+        <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+        <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+        <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+index.js
+// Updated index.js
+
+// Initialize user login state
+let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+// Function to open the auth popup
+function openAuthPopup() {
+    document.getElementById('auth-popup').style.display = 'flex';
+}
+
+// Function to close the auth popup
+function closeAuthPopup() {
+    document.getElementById('auth-popup').style.display = 'none';
+}
+
+
+// Toggle between Sign In and Sign Up modes
+function toggleAuthMode() {
+    const authTitle = document.getElementById('auth-title');
+    const authToggle = document.getElementById('auth-toggle');
+    const authSubmitBtn = document.getElementById('auth-submit-btn');
+
+    if (authTitle.innerText === 'Sign In') {
+        authTitle.innerText = 'Sign Up';
+        authToggle.innerHTML = 'Already have an account? <a href="#" onclick="toggleAuthMode()">Sign In</a>';
+        authSubmitBtn.innerText = 'Sign Up';
+    } else {
+        authTitle.innerText = 'Sign In';
+        authToggle.innerHTML = 'Don\'t have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a>';
+        authSubmitBtn.innerText = 'Sign In';
+    }
+}
+
+// Handle auth form submission
+document.getElementById('auth-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('auth-email').value.trim();
+    const password = document.getElementById('auth-password').value.trim();
+    const authTitle = document.getElementById('auth-title').innerText;
+
+    if (authTitle === 'Sign In') {
+        const storedEmail = localStorage.getItem('userEmail');
+        const storedPassword = localStorage.getItem('userPassword');
+        if (email === storedEmail && password === storedPassword) {
+            isLoggedIn = true;
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Sign in successful!');
+            closeAuthPopup();
+            checkPendingActions();
+            updateAuthLinks();
+        } else {
+            alert('Invalid email or password.');
+        }
+    } else {
+        // Simple email and password validation
+        if (validateEmail(email) && password.length >= 6) {
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password);
+            isLoggedIn = true;
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Sign up successful!');
+            closeAuthPopup();
+            checkPendingActions();
+            updateAuthLinks();
+        } else {
+            alert('Please enter a valid email and password (minimum 6 characters).');
+        }
+    }
+});
+
+// Email validation function
+function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+// Function to update navigation based on login state
+function updateAuthLinks() {
+    const accountLink = document.querySelector('nav ul li a[href="account.html"]');
+    if (isLoggedIn) {
+        accountLink.innerText = 'My Account';
+    } else {
+        accountLink.innerText = 'Sign In';
+    }
+}
+
+// Function to handle sign out
+function signOut() {
+    if (confirm('Are you sure you want to sign out?')) {
+        isLoggedIn = false;
+        localStorage.setItem('isLoggedIn', 'false');
+        alert('You have been signed out.');
+        updateAuthLinks();
+        // Redirect to home page after sign out
+        window.location.href = 'index.html';
+    }
+}
+
+// Add to Cart function with login check
+function addToCart(productName, productPrice) {
+    if (!isLoggedIn) {
+        openAuthPopup();
+        localStorage.setItem('pendingAddToCart', JSON.stringify({ name: productName, price: productPrice }));
+    } else {
+        proceedToAddToCart(productName, productPrice);
+    }
+}
+
+// Function to proceed with adding to cart
+function proceedToAddToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ name: productName, price: productPrice, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${productName} has been added to your cart!`);
+}
+
+// Check if there is a pending add to cart action after login
+function checkPendingActions() {
+    const pendingAddToCart = JSON.parse(localStorage.getItem('pendingAddToCart'));
+    if (isLoggedIn && pendingAddToCart) {
+        proceedToAddToCart(pendingAddToCart.name, pendingAddToCart.price);
+        localStorage.removeItem('pendingAddToCart');
+    }
+}
+
+// Function to update cart count in the navigation menu
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').innerText = cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+// Function to display cart items on cart.html
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartItemsContainer.innerHTML = '';
+    let cartTotal = 0;
+
+    cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        cartTotal += subtotal;
+        cartItemsContainer.innerHTML += `
+          <tr>
+            <td>${item.name}</td>
+            <td>₹${item.price.toLocaleString()}</td>
+            <td>
+              <button onclick="changeQuantity(${index}, -1)" class="quantity-btn">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)" class="quantity-btn">+</button>
+            </td>
+            <td>₹${subtotal.toLocaleString()}</td>
+            <td><button onclick="removeFromCart(${index})" class="remove-btn"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+        `;
+    });
+
+    cartTotalElement.innerText = cartTotal.toLocaleString();
+    updateCartCount();
+}
+
+// Function to change the quantity of a cart item
+function changeQuantity(index, delta) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart[index].quantity += delta;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    if (confirm('Are you sure you want to remove this item from your cart?')) {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems();
+    }
+}
+
+// Function to handle checkout
+function checkout() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    window.location.href = `payment.html?total=${encodeURIComponent(totalAmount)}`;
+}
+
+// Function to open order popup
+function openOrderPopup(productName, productPrice) {
+    document.getElementById('order-popup').style.display = 'flex';
+    document.getElementById('product').value = productName;
+    document.getElementById('price').value = productPrice;
+}
+
+// Function to close order popup
+function closeOrderPopup() {
+    document.getElementById('order-popup').style.display = 'none';
+}
+
+// Handle order form submission
+document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Simple order processing simulation
+    alert('Your order has been submitted successfully!');
+    // Clear cart after order
+    localStorage.removeItem('cart');
+    updateCartCount();
+    closeOrderPopup();
+    window.location.href = 'success.html';
+});
+
+// Handle contact form submission
+document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Simulate sending message
+    alert('Your message has been sent successfully!');
+    document.getElementById('contact-form').reset();
+});
+
+// Handle newsletter subscription
+document.getElementById('newsletter-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = event.target.querySelector('input[type="email"]').value.trim();
+    if (validateEmail(email)) {
+        alert('Thank you for subscribing to our newsletter!');
+        event.target.reset();
+    } else {
+        alert('Please enter a valid email address.');
+    }
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    updateAuthLinks();
+    checkPendingActions();
+    if (window.location.pathname.endsWith('cart.html')) {
+        displayCartItems();
+    }
+});
+
+
+
+
+
+payment.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="payment.js" defer></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Payment Details -->
+  <section id="payment-details">
+    <div class="container">
+      <h2>Complete Your Payment</h2>
+      <div class="payment-info">
+        <p><strong>Product:</strong> <span id="product-name">Loading...</span></p>
+        <p><strong>Amount:</strong> ₹<span id="amount">0</span></p>
+      </div>
+      <div class="payment-options">
+        <button id="upi-button" class="btn" onclick="payWithUPI()">Pay Using UPI</button>
+        <button id="wallet-button" class="btn" onclick="payWithWallet()">Pay Using Wallet</button>
+      </div>
+      <p class="secure-payment"><i class="fas fa-lock"></i> Secure Payment Gateway</p>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Auth Popup (Sign In/Sign Up) -->
+  <div id="auth-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeAuthPopup()">&times;</span>
+      <h2 id="auth-title">Sign In</h2>
+      <form id="auth-form">
+        <input type="email" name="email" id="auth-email" placeholder="Your Email" required>
+        <input type="password" name="password" id="auth-password" placeholder="Your Password" required>
+        <p id="auth-toggle">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign Up</a></p>
+        <button type="submit" class="btn" id="auth-submit-btn">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+payment.js
+// Updated payment.js
+
+// Function to get query parameters
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+
+// Display product and amount based on query parameters
+document.addEventListener('DOMContentLoaded', function() {
+  const productName = getQueryParam('product');
+  const amount = getQueryParam('price') || getQueryParam('total');
+
+  if (productName) {
+    document.getElementById('product-name').textContent = productName;
+  } else {
+    document.getElementById('product-name').textContent = 'Multiple Items';
+  }
+  document.getElementById('amount').textContent = Number(amount).toLocaleString();
+});
+
+// Simulate UPI payment
+function payWithUPI() {
+  if (confirm('Do you want to proceed with UPI Payment of ₹' + document.getElementById('amount').textContent + '?')) {
+    alert('UPI Payment initiated successfully!');
+    // Redirect to a success page or show confirmation message
+    window.location.href = 'success.html';
+  }
+}
+
+// Simulate Wallet payment
+function payWithWallet() {
+  if (confirm('Do you want to proceed with Wallet Payment of ₹' + document.getElementById('amount').textContent + '?')) {
+    // Check if user has sufficient wallet balance (simulation)
+    const walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
+    const paymentAmount = parseFloat(getQueryParam('price') || getQueryParam('total')) || 0;
+
+    if (walletBalance >= paymentAmount) {
+      localStorage.setItem('walletBalance', (walletBalance - paymentAmount).toFixed(2));
+      alert('Wallet Payment successful!');
+      window.location.href = 'success.html';
+    } else {
+      alert('Insufficient wallet balance. Please add funds to your wallet or choose another payment method.');
+    }
+  }
+}
+
+
+
+
+
+privacy.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Privacy Policy Content -->
+  <section id="privacy-policy">
+    <div class="container">
+      <h2>Privacy Policy</h2>
+      <p>Effective Date: January 1, 2024</p>
+      <p>e-Educational ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="index.html">e-Educational</a>, including any other media form, media channel, mobile website, or mobile application related or connected thereto.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p>We may collect information about you in a variety of ways. The information we may collect via the Site depends on the content and materials you use, and includes:</p>
+      <ul>
+        <li><strong>Personal Data:</strong> Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, that you voluntarily give to us when you choose to participate in various activities related to the Site, such as online chat and message boards.</li>
+        <li><strong>Payment Information:</strong> We do not store your payment information. All payment transactions are processed through secure third-party services.</li>
+        <li><strong>Data from Social Networks:</strong> User information from social networking sites, such as [Facebook, Google, Twitter, etc.], including your name, your social network username, location, gender, birth date, email address, profile picture, and public data for contacts, if you connect your account to such social networks.</li>
+        <li><strong>Mobile Device Data:</strong> Device information, such as your mobile device ID, model, and manufacturer, and information about the location of your device, if you access the Site from a mobile device.</li>
+        <li><strong>Third-Party Data:</strong> Information from third parties, such as personal information or network friends, if you connect your account to the third party and grant the Site permission to access this information.</li>
+        <li><strong>Data from Contests, Giveaways, and Surveys:</strong> Personal and other information you may provide when entering contests or giveaways and/or responding to surveys.</li>
+      </ul>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+      <ul>
+        <li>Create and manage your account.</li>
+        <li>Process and fulfill your orders.</li>
+        <li>Improve our website and your shopping experience.</li>
+        <li>Respond to your customer service requests and support needs.</li>
+        <li>Send you marketing and promotional communications.</li>
+        <li>Protect our services and users.</li>
+      </ul>
+
+      <h3>3. Disclosure of Your Information</h3>
+      <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+      <ul>
+        <li><strong>By Law or to Protect Rights:</strong> If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others.</li>
+        <li><strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</li>
+        <li><strong>Marketing Communications:</strong> With your consent, or with an opportunity for you to withdraw consent, we may share your information with third parties for marketing purposes, as permitted by law.</li>
+        <li><strong>Interactions with Other Users:</strong> If you interact with other users of the Site, those users may see your name, profile photo, and descriptions of your activity.</li>
+        <li><strong>Online Postings:</strong> When you post comments, contributions, or other content to the Site, your posts may be viewed by all users and may be publicly distributed outside the Site in perpetuity.</li>
+        <li><strong>Third-Party Advertisers:</strong> We may use third-party advertising companies to serve ads when you visit the Site. These companies may use information about your visits to the Site and other websites that are contained in web cookies in order to provide advertisements about goods and services of interest to you.</li>
+      </ul>
+
+      <h3>4. Security of Your Information</h3>
+      <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+
+      <h3>5. Policy for Children</h3>
+      <p>We do not knowingly solicit information from or market to children under the age of 13. If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</p>
+
+      <h3>6. Changes to This Privacy Policy</h3>
+      <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons.</p>
+      <p>We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+
+      <h3>7. Contact Us</h3>
+      <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
+      <ul>
+        <li>Email: <a href="mailto:privacy@e-educational.com">privacy@e-educational.com</a></li>
+        <li>Phone: +91-9469050879</li>
+        <li>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+products.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products - e-Educational</title>
+  <!-- Responsive Meta Tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Browse our wide selection of computers and peripherals at e-Educational.">
+  <meta name="keywords" content="e-Educational, products, computers, peripherals, online store">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- JavaScript File -->
+  <script src="index.js" defer></script>
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Products Section -->
+  <section id="products-page">
+    <div class="container">
+      <h2>Our Products</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <i class="fas fa-laptop fa-3x product-icon"></i>
+          <h3>High-Performance Laptop</h3>
+          <p class="price">₹98,000 <span class="discount">Save 10%</span></p>
+          <p class="description">Powerful specs to handle any task, from office work to graphic design.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('High-Performance Laptop', 98000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('High-Performance Laptop', 98000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <i class="fas fa-keyboard fa-3x product-icon"></i>
+          <h3>Wireless Keyboard and Mouse Combo</h3>
+          <p class="price">₹4,980</p>
+          <p class="description">Perfect for productivity on the go with seamless connectivity.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Keyboard and Mouse Combo', 4980)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <i class="fas fa-shield-alt fa-3x product-icon"></i>
+          <h3>Antivirus Software (1-Year Subscription)</h3>
+          <p class="price">₹3,320 <span class="discount">Save 5%</span></p>
+          <p class="description">Protect your computer from viruses and malware with our comprehensive antivirus solution.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Antivirus Software', 3320)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Antivirus Software', 3320)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <i class="fas fa-hdd fa-3x product-icon"></i>
+          <h3>External Hard Drive (1TB)</h3>
+          <p class="price">₹6,640</p>
+          <p class="description">Safely store and back up all your important files with ease.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External Hard Drive (1TB)', 6640)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External Hard Drive (1TB)', 6640)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+          <i class="fas fa-keyboard fa-3x product-icon"></i>
+          <h3>Mechanical Keyboard</h3>
+          <p class="price">₹5,000</p>
+          <p class="description">Responsive keys for efficient and comfortable typing experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Mechanical Keyboard', 5000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Mechanical Keyboard', 5000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+          <i class="fas fa-mouse fa-3x product-icon"></i>
+          <h3>Wireless Mouse</h3>
+          <p class="price">₹1,500</p>
+          <p class="description">Comfortable and precise control with long-lasting battery life.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Mouse', 1500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Mouse', 1500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card">
+          <i class="fas fa-desktop fa-3x product-icon"></i>
+          <h3>24" LED Monitor</h3>
+          <p class="price">₹10,000</p>
+          <p class="description">Crisp visuals and vibrant colors for work and play.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('24\" LED Monitor', 10000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('24\" LED Monitor', 10000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 8 -->
+        <div class="product-card">
+          <i class="fas fa-wifi fa-3x product-icon"></i>
+          <h3>Wireless Router</h3>
+          <p class="price">₹3,500</p>
+          <p class="description">Fast and reliable internet connection with extensive coverage.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Router', 3500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Router', 3500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 9 -->
+        <div class="product-card">
+          <i class="fas fa-memory fa-3x product-icon"></i>
+          <h3>1TB SSD</h3>
+          <p class="price">₹12,000</p>
+          <p class="description">Upgrade your storage speed with our high-performance SSD.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('1TB SSD', 12000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('1TB SSD', 12000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 10 -->
+        <div class="product-card">
+          <i class="fas fa-usb fa-3x product-icon"></i>
+          <h3>64GB USB Flash Drive</h3>
+          <p class="price">₹1,200</p>
+          <p class="description">Portable storage on the go with high-speed data transfer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('64GB USB Flash Drive', 1200)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('64GB USB Flash Drive', 1200)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 11 -->
+        <div class="product-card">
+          <i class="fas fa-print fa-3x product-icon"></i>
+          <h3>Wireless Printer</h3>
+          <p class="price">₹10,500</p>
+          <p class="description">Convenient printing without the hassle of cables.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Wireless Printer', 10500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Wireless Printer', 10500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 12 -->
+        <div class="product-card">
+          <i class="fas fa-tablet-alt fa-3x product-icon"></i>
+          <h3>Android Tablet</h3>
+          <p class="price">₹15,000</p>
+          <p class="description">Entertainment and productivity on the go with a sleek design.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Android Tablet', 15000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Android Tablet', 15000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 13 -->
+        <div class="product-card">
+          <i class="fas fa-memory fa-3x product-icon"></i>
+          <h3>16GB RAM Module</h3>
+          <p class="price">₹6,000</p>
+          <p class="description">Boost your computer's performance with additional memory.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('16GB RAM Module', 6000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('16GB RAM Module', 6000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 14 -->
+        <div class="product-card">
+          <i class="fas fa-microchip fa-3x product-icon"></i>
+          <h3>Intel Core i9 Processor</h3>
+          <p class="price">₹35,000</p>
+          <p class="description">Experience unmatched speed and performance for demanding applications.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Intel Core i9 Processor', 35000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Intel Core i9 Processor', 35000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 15 -->
+        <div class="product-card">
+          <i class="fas fa-video fa-3x product-icon"></i>
+          <h3>Webcam with Microphone</h3>
+          <p class="price">₹2,500</p>
+          <p class="description">Stay connected with high-quality video and clear audio.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Webcam with Microphone', 2500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Webcam with Microphone', 2500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 16 -->
+        <div class="product-card">
+          <i class="fas fa-video fa-3x product-icon"></i>
+          <h3>Portable Projector</h3>
+          <p class="price">₹20,000</p>
+          <p class="description">Bring presentations anywhere with ease and clarity.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Portable Projector', 20000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Portable Projector', 20000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 17 -->
+        <div class="product-card">
+          <i class="fas fa-headset fa-3x product-icon"></i>
+          <h3>Gaming Headset</h3>
+          <p class="price">₹4,500</p>
+          <p class="description">Immersive sound quality for an enhanced gaming experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Gaming Headset', 4500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Gaming Headset', 4500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 18 -->
+        <div class="product-card">
+          <i class="fas fa-network-wired fa-3x product-icon"></i>
+          <h3>Network Switch</h3>
+          <p class="price">₹7,000</p>
+          <p class="description">Expand your wired network with ease and reliability.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Network Switch', 7000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Network Switch', 7000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 19 -->
+        <div class="product-card">
+          <i class="fas fa-battery-full fa-3x product-icon"></i>
+          <h3>UPS Battery Backup</h3>
+          <p class="price">₹9,000</p>
+          <p class="description">Protect your devices from power outages with reliable backup power.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('UPS Battery Backup', 9000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('UPS Battery Backup', 9000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 20 -->
+        <div class="product-card">
+          <i class="fas fa-hdd fa-3x product-icon"></i>
+          <h3>External Hard Drive (2TB)</h3>
+          <p class="price">₹8,500</p>
+          <p class="description">Ample storage for all your important files and backups.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External Hard Drive (2TB)', 8500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External Hard Drive (2TB)', 8500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 21 -->
+        <div class="product-card">
+          <i class="fas fa-sd-card fa-3x product-icon"></i>
+          <h3>128GB SD Card</h3>
+          <p class="price">₹2,000</p>
+          <p class="description">Expand storage for your cameras and devices with high-speed data transfer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('128GB SD Card', 2000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('128GB SD Card', 2000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 22 -->
+        <div class="product-card">
+          <i class="fas fa-tablet-alt fa-3x product-icon"></i>
+          <h3>Graphics Tablet</h3>
+          <p class="price">₹12,500</p>
+          <p class="description">For artists and designers to create with precision and ease.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Graphics Tablet', 12500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Graphics Tablet', 12500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 23 -->
+        <div class="product-card">
+          <i class="fas fa-server fa-3x product-icon"></i>
+          <h3>External DVD Writer</h3>
+          <p class="price">₹3,000</p>
+          <p class="description">Read and write CDs/DVDs with ease using our compact external writer.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('External DVD Writer', 3000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('External DVD Writer', 3000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 24 -->
+        <div class="product-card">
+          <i class="fas fa-code fa-3x product-icon"></i>
+          <h3>Software Development Kit</h3>
+          <p class="price">₹5,500</p>
+          <p class="description">All you need to start coding and developing your own software.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Software Development Kit', 5500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Software Development Kit', 5500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 25 -->
+        <div class="product-card">
+          <i class="fas fa-network-wired fa-3x product-icon"></i>
+          <h3>Ethernet Cable (10m)</h3>
+          <p class="price">₹800</p>
+          <p class="description">High-speed data transfer for reliable network connections.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Ethernet Cable (10m)', 800)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Ethernet Cable (10m)', 800)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 26 -->
+        <div class="product-card">
+          <i class="fas fa-volume-up fa-3x product-icon"></i>
+          <h3>Computer Speakers</h3>
+          <p class="price">₹2,200</p>
+          <p class="description">Enhance your audio experience with rich and clear sound.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Computer Speakers', 2200)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Computer Speakers', 2200)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 27 -->
+        <div class="product-card">
+          <i class="fas fa-cloud fa-3x product-icon"></i>
+          <h3>Cloud Storage Subscription</h3>
+          <p class="price">₹1,500/year</p>
+          <p class="description">Secure online storage with easy access from anywhere.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Cloud Storage Subscription', 1500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Cloud Storage Subscription', 1500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 28 -->
+        <div class="product-card">
+          <i class="fas fa-gamepad fa-3x product-icon"></i>
+          <h3>Game Controller</h3>
+          <p class="price">₹3,000</p>
+          <p class="description">Compatible with PC and consoles for an immersive gaming experience.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Game Controller', 3000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Game Controller', 3000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 29 -->
+        <div class="product-card">
+          <i class="fas fa-lightbulb fa-3x product-icon"></i>
+          <h3>Smart LED Bulb</h3>
+          <p class="price">₹1,000</p>
+          <p class="description">Control lighting with your phone for convenience and energy savings.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Smart LED Bulb', 1000)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Smart LED Bulb', 1000)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- Product 30 -->
+        <div class="product-card">
+          <i class="fas fa-graduation-cap fa-3x product-icon"></i>
+          <h3>Online Course Subscription</h3>
+          <p class="price">₹2,500</p>
+          <p class="description">Access a wide range of courses to enhance your skills online.</p>
+          <div class="product-actions">
+            <button onclick="addToCart('Online Course Subscription', 2500)" class="btn">Add to Cart</button>
+            <button onclick="openOrderPopup('Online Course Subscription', 2500)" class="btn">Buy Now</button>
+          </div>
+        </div>
+        <!-- End of Product Cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="product-faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How do I add a product to my cart?</h3>
+        <p>Simply click on the "Add to Cart" button below the desired product. You can view your cart by clicking the cart icon in the navigation bar.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What payment methods are accepted?</h3>
+        <p>We accept all major credit and debit cards, net banking, UPI payments through Gpay, and wallet services.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I track my order?</h3>
+        <p>Yes, once your order is shipped, you will receive a tracking number via email which you can use to track your order status.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the return policy?</h3>
+        <p>We offer a 30-day return policy on all products. Please refer to our <a href="support.html#returns">Support</a> page for more details.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I create an account?</h3>
+        <p>To create an account, click on "My Account" at the top of the page and fill out the registration form.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Order Form Popup Modal -->
+  <div id="order-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeOrderPopup()">&times;</span>
+      <h2>Order Form</h2>
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="address" placeholder="Delivery Address" required>
+        <input type="hidden" name="product" id="product">
+        <input type="hidden" name="price" id="price">
+        <button type="submit" class="btn">Submit Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup for Help Links -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <p id="popup-text"></p>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+styles.css
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Body and Typography */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  max-height: 60px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: #4CAF50;
+}
+
+nav ul li a:hover::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #4CAF50;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* Hero Section */
+#hero {
+  position: relative;
+  background: url('images/hero-background.jpg') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+#hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#hero p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+#hero .btn {
+  background: #4CAF50;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+#hero .btn:hover {
+  background: #45a049;
+}
+
+/* Featured Products */
+#featured-products, #products-page {
+  padding: 40px 0;
+}
+
+#featured-products h2, #products-page h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #333;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(25% - 20px);
+  text-align: center;
+  padding: 15px;
+  transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.product-card .price {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-card .discount {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+.product-card .description {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.product-card .btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.product-card .btn:hover {
+  background: #0056b3;
+}
+
+.product-card .btn-secondary {
+  background: #28a745;
+}
+
+.product-card .btn-secondary:hover {
+  background: #218838;
+}
+
+/* Trust Indicators */
+#trust {
+  background: #f1f1f1;
+  padding: 20px 0;
+}
+
+.trust-grid {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.trust-item {
+  flex: 1;
+  padding: 10px;
+}
+
+.trust-item i {
+  font-size: 2em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.trust-item p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Testimonials */
+#testimonials {
+  padding: 40px 0;
+}
+
+#testimonials h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #333;
+}
+
+.testimonial-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.testimonial-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: calc(45% - 20px);
+  padding: 15px;
+  text-align: center;
+}
+
+.testimonial-item p {
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.testimonial-item h4 {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Newsletter */
+#newsletter {
+  background: #4CAF50;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+
+#newsletter h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+#newsletter p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+#newsletter-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#newsletter-form input[type="email"] {
+  padding: 10px;
+  width: 250px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  margin-right: -5px;
+}
+
+#newsletter-form .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background: #333;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#newsletter-form .btn:hover {
+  background: #555;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1 1 30%;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-social h3 {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+}
+
+.footer-links ul li,
+.footer-social ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a,
+.footer-social ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover,
+.footer-social ul li a:hover {
+  color: #4CAF50;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+/* Popup Styling */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #555;
+}
+
+#order-form input[type="text"],
+#order-form input[type="email"],
+#order-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#order-form textarea {
+  resize: vertical;
+}
+
+#order-form .btn {
+  background: #28a745;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#order-form .btn:hover {
+  background: #218838;
+}
+
+/* Auth Popup Styling */
+#auth-popup .popup-content {
+  max-width: 400px;
+}
+
+#auth-popup h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#auth-popup input[type="email"],
+#auth-popup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#auth-popup #auth-toggle {
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+#auth-popup #auth-toggle a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#auth-popup #auth-toggle a:hover {
+  text-decoration: underline;
+}
+
+#auth-popup .btn {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#auth-popup .btn:hover {
+  background: #0056b3;
+}
+
+/* Cart Page */
+#cart-page {
+  padding: 40px 0;
+}
+
+#cart-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #333;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.cart-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.cart-actions {
+  text-align: right;
+}
+
+.cart-actions .btn {
+  margin-left: 10px;
+}
+
+/* Account Page */
+#account-page {
+  padding: 40px 0;
+}
+
+#account-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #333;
+}
+
+.account-details {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.account-details p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.account-details form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.account-details form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.account-details .btn {
+  background: #28a745;
+}
+
+.account-details .btn-secondary {
+  background: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .product-card {
+    width: calc(33.333% - 20px);
+  }
+
+  .trust-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-item {
+    width: 100%;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-social {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .product-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+  }
+
+  #hero h1 {
+    font-size: 2em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+
+  #newsletter-form {
+    flex-direction: column;
+  }
+
+  #newsletter-form input[type="email"] {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  #newsletter-form .btn {
+    width: 100%;
+  }
+}
+
+/* Additional Styles for Enhanced UI */
+
+.quantity-btn {
+  background: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.quantity-btn:hover {
+  background: #ccc;
+}
+
+.remove-btn {
+  background: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+}
+
+.payment-info p {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.payment-options .btn {
+  margin: 10px;
+}
+
+/* End of styles.css */
+
+
+
+
+
+success.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Success - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Success Message -->
+  <section id="success-message">
+    <div class="container">
+      <div class="success-icon">
+        <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
+      </div>
+      <h2>Thank You for Your Purchase!</h2>
+      <p>Your payment has been processed successfully.</p>
+      <p>An email confirmation has been sent to your registered email address.</p>
+      <a href="index.html" class="btn">Return to Home</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+support.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Support - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html" class="active">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Support Content -->
+  <section id="support-page">
+    <div class="container">
+      <h2>Customer Support</h2>
+      <p>If you have any questions, concerns, or need assistance with your orders, please feel free to reach out to us using the contact information below.</p>
+
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <p>Email: <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <p>Phone: +91-9469050879</p>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
+
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
+
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- You can omit the social media section since you don't have profiles yet -->
+        <!-- <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <!-- Social media links would go here -->
+          <!-- </ul>
+        </div> -->
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+terms.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terms & Conditions - e-Educational</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkTyX4K3bLZ+2V7oScKfVZFVgi4+Sxq56RYEJZf7eAGrZ6rVqVUV4pI7PwGZt5KPc5q7TLgEJJNk9VqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="https://raw.githubusercontent.com/ShGulfam/e-Educational/refs/heads/main/store.png" alt="e-Educational Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Terms & Conditions Content -->
+  <section id="terms-page">
+    <div class="container">
+      <h2>Terms & Conditions</h2>
+      <p>Effective Date: January 1, 2024</p>
+      <p>Welcome to e-Educational. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+
+      <h3>1. Acceptance of Terms</h3>
+      <p>By accessing and using e-Educational, you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+      <h3>2. Modification of Terms</h3>
+      <p>e-Educational reserves the right to change, modify, add, or remove portions of these Terms & Conditions at any time. Please check these terms periodically for changes.</p>
+
+      <h3>3. User Accounts</h3>
+      <p>To access certain features of the site, you may be required to create an account. You are responsible for maintaining the confidentiality of your account and password.</p>
+
+      <h3>4. Product Information</h3>
+      <p>We strive to ensure that all product information is accurate and up-to-date. However, we do not warrant that the descriptions or other content of products are accurate, complete, reliable, current, or error-free.</p>
+
+      <h3>5. Pricing and Payments</h3>
+      <p>All prices are listed in Indian Rupees (₹) and are subject to change without notice. Payments must be made through the available payment gateways on the site.</p>
+
+      <h3>6. Shipping and Delivery</h3>
+      <p>We offer various shipping options. Delivery times may vary based on your location and the selected shipping method.</p>
+
+      <h3>7. Returns and Refunds</h3>
+      <p>Refer to our <a href="support.html#returns">Return Policy</a> for information on returns and refunds.</p>
+
+      <h3>8. Intellectual Property</h3>
+      <p>All content on this site, including text, graphics, logos, and images, is the property of e-Educational and is protected by intellectual property laws.</p>
+
+      <h3>9. Limitation of Liability</h3>
+      <p>e-Educational shall not be liable for any damages arising from the use or inability to use the site or products.</p>
+
+      <h3>10. Governing Law</h3>
+      <p>These Terms & Conditions are governed by and construed in accordance with the laws of India.</p>
+
+      <h3>11. Contact Information</h3>
+      <p>If you have any questions about these Terms & Conditions, please contact us at:</p>
+      <ul>
+        <li>Email: <a href="mailto:terms@e-educational.com">terms@e-educational.com</a></li>
+        <li>Phone: +91-9469050879</li>
+        <li>Address: Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>About e-Educational</h3>
+          <p>We provide high-quality electronics and exceptional customer service.</p>
+          <p><strong>Address:</strong> Hardu-Shichen Dialgam, Anantnag, Jammu and Kashmir, India.</p>
+          <p><strong>Phone:</strong> +91-9469050879</p>
+          <p><strong>Email:</strong> <a href="mailto:e.educational.24@gmail.com">e.educational.24@gmail.com</a></p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="terms.html" class="active">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2023 e-Educational. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
